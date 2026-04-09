@@ -1,7 +1,7 @@
 
 # 🗓️ Interactive Calendar Component
 
-🔗 **Live Demo: ** 
+🔗 **Live Demo: https://aditya-s-assignment.vercel.app/ ** 
 🎥 **Video Walkthrough: https://drive.google.com/file/d/1iJ1gG6Sw3O4NLC4eJO55k2lEQtxi1BkP/view?usp=drivesdk ** 
 
 ---
