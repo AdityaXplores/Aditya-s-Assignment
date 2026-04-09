@@ -1,64 +1,188 @@
-# Interactive Calendar Component
+# 🗓️ Interactive Calendar Component
 
-**Live Demo:** `https://tuf-assignment-bice.vercel.app/`
-**Video Walkthrough:** `https://youtu.be/0E4US_Kx1pI`
+🔗 **Live Demo:** 
+🎥 **Video Walkthrough:** 
 
-This project is a highly interactive, fully responsive React/Next.js calendar component built to emulate a physical wall calendar. It was developed to fulfill a frontend engineering challenge, focusing on clean architecture, complex state management, and an exceptional user experience.
+---
+
+## 📌 Overview
+
+A highly interactive, fully responsive calendar component built using **React + Next.js**, designed to emulate a modern wall calendar experience.
+
+This project focuses on:
+
+* ⚡ Clean architecture
+* 🧠 Advanced state management
+* 🎯 High-quality user experience
+
+---
 
 ## ✨ Features
 
-* **Dynamic Day Range Selection:** Users can select start and end dates with a seamless, gapless visual highlight trail connecting the days.
-* **Persistent Local Storage Notes:** Integrated notes system that isolates data dynamically. Users can save "General Month" notes, or click specific dates/ranges to attach isolated memos. Data persists via a custom `localStorage` hook.
-* **Monthly Overview Dashboard:** A scrollable dashboard dynamically compiles and sorts all notes for the current month (Passed dates are pushed to the bottom, upcoming dates float to the top).
-* **Dynamic Theming & Imagery:** The calendar's primary colors, text hues, and hero image automatically change based on the current month to reflect the seasons.
-* **Holiday & Weekend Indicators:** Built-in holiday tracking puts a visual star on significant dates, and weekends are visually separated from weekdays.
-* **Fully Responsive:** Side-by-side layout on desktop that gracefully collapses to a stacked, touch-friendly UI on mobile devices.
+### 📅 Smart Date Selection
 
-## 🏗️ Architectural Choices
+* Select single dates or ranges seamlessly
+* Smooth, gapless highlight between selected dates
 
-To demonstrate strong frontend fundamentals, I made specific architectural decisions regarding the tech stack and component structure:
+### 📝 Persistent Notes System
 
-1.  **Framework: Next.js (App Router)**
-    * *Why:* While a standard Vite/React app would work, Next.js provides out-of-the-box optimizations, a strict and predictable folder structure (`src/app`), and seamless deployment via Vercel. 
-2.  **Styling: Tailwind CSS**
-    * *Why:* Chosen for rapid, utility-first UI development. It allowed me to build complex responsive layouts (like the side-by-side desktop view) and handle dynamic theming directly in the JSX without managing sprawling external stylesheets.
-3.  **State Management: React Hooks (`useState`, `useMemo`, `useCallback`)**
-    * *Why:* I deliberately avoided heavy global state managers like Redux or Zustand. The state of this component (start date, end date, current month) is highly localized. Lifting state to the parent `page.js` container was sufficient to keep the Hero Image and Calendar Widget perfectly synced.
-4.  **Date Logic: `date-fns`**
-    * *Why:* Handling date math manually (leap years, month rollovers, days of the week) is notoriously prone to bugs. `date-fns` is a lightweight, modular library that allowed me to cleanly generate the month grid and handle comparison logic (`isBefore`, `isWithinInterval`) without bloating the bundle size like Moment.js would.
-5.  **Data Persistence: Custom `useNotes` Hook**
-    * *Why:* Per the requirements, no backend was allowed. I built a custom hook to wrap `localStorage`. Crucially, this hook dispatches browser events upon saving, allowing disparate parts of the UI (like the calendar dots and the overview list) to instantly re-render without complex prop-drilling, while also implementing a hydration-safe loading state to prevent Next.js SSR mismatch errors.
+* Add notes for:
 
-## 🚀 Running the Project Locally
+  * Individual dates
+  * Date ranges
+  * Entire month
+* Data stored using **localStorage**
+* Built with a custom `useNotes` hook
 
-Follow these steps to run the component on your local machine.
+### 📊 Monthly Overview Dashboard
 
-**Prerequisites:**
-Ensure you have [Node.js](https://nodejs.org/) installed on your machine.
+* Displays all notes for the current month
+* Smart sorting:
 
-**1. Clone the repository**
+  * Upcoming dates first
+  * Past entries pushed to bottom
+
+### 🎨 Dynamic Theming
+
+* Theme (colors + image) changes automatically per month
+* Improves visual engagement and season-based UX
+
+### ⭐ Indicators
+
+* Holidays → ⭐ icon
+* Weekends → visually distinct
+
+### 📱 Fully Responsive
+
+* Desktop → side-by-side layout
+* Mobile → stacked, touch-friendly UI
+
+---
+
+## 🏗️ Architecture & Decisions
+
+### ⚙️ Framework — Next.js (App Router)
+
+* Structured folder system (`src/app`)
+* Optimized rendering & performance
+* Easy deployment (Vercel)
+
+---
+
+### 🎨 Styling — Tailwind CSS
+
+* Utility-first → faster UI development
+* Easy responsive design
+* Dynamic theming via classNames
+
+---
+
+### 🧠 State Management — React Hooks
+
+* Used:
+
+  * `useState`
+  * `useMemo`
+  * `useCallback`
+
+* No external state library used
+
+* State kept local and efficient
+
+---
+
+### 📆 Date Handling — date-fns
+
+* Lightweight & modular
+* Avoids manual date bugs
+* Used for:
+
+  * Comparisons
+  * Intervals
+  * Formatting
+
+---
+
+### 💾 Persistence — Custom Hook (`useNotes`)
+
+* Wraps `localStorage`
+* Emits custom events → instant UI updates
+* Handles hydration safely (avoids SSR mismatch)
+
+---
+
+## 🚀 Getting Started
+
+### ✅ Prerequisites
+
+* Node.js installed → https://nodejs.org/
+
+---
+
+### 1️⃣ Clone the repo
+
 ```bash
-git clone [https://github.com/yourusername/your-repo-name.git](https://github.com/yourusername/your-repo-name.git)
-cd your-repo-name
+git clone https://github.com/AdityaXplores/Aditya-s-Assignment.git
+cd Aditya-s-Assignment
 ```
 
-**2. Install dependencies**
+---
+
+### 2️⃣ Install dependencies
+
 ```bash
 npm install
 ```
 
-**3. Run the development server**
+---
+
+### 3️⃣ Run development server
+
 ```bash
 npm run dev
 ```
 
-**4. View the application**
-Open your browser and navigate to `http://localhost:3000` to interact with the calendar.
+---
+
+### 4️⃣ Open in browser
+
+```bash
+http://localhost:3000
+```
+
+---
 
 ## 🛠️ Tech Stack
-* React 18
-* Next.js 14
-* Tailwind CSS
-* date-fns
-* lucide-react (Icons)
-```
+
+* ⚛️ React 18
+* ⚡ Next.js 14
+* 🎨 Tailwind CSS
+* 📆 date-fns
+* 🎯 lucide-react (icons)
+
+---
+
+## 💡 Highlights
+
+* Clean separation of concerns
+* Scalable component structure
+* Smooth animations & UX
+* Real-world product-level UI thinking
+
+---
+
+## 📌 Future Improvements
+
+* 🌐 Add backend (Firebase / Supabase)
+* 🔔 Notifications & reminders
+* 📅 Google Calendar sync
+* 🎭 Dark mode support
+
+---
+
+## 🙌 Author
+
+**Aditya**
+Frontend Developer | Building better every day 🚀
+
+---
